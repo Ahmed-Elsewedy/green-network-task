@@ -1,0 +1,443 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Green Network Task",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Books"
+    },
+    {
+      "name": "Users"
+    },
+    {
+      "name": "Transactions"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Create Book",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "a",
+                  "author": "a",
+                  "publicationDate": "2024-12-12",
+                  "isbn": "a",
+                  "availableCopies": 2
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "View All Books",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "patch": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Update Book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the book to update.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "a",
+                  "author": "a",
+                  "publicationDate": "2024-12-12",
+                  "isbn": "a",
+                  "availableCopies": 21
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "View Book By Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the book to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Delete Book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the book to delete.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/books/search": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "summary": "Search Books",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ahmed"
+          },
+          {
+            "name": "isbn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "ahmed",
+                  "email": "ahmed2@email.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get All Users",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update User",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to update.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "ahmed mohamed",
+                  "email": "ahmed2@email.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete User",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to delete.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get User By ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}/borrow/{bookId}": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Borrow Book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user borrowing the book.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the book being borrowed.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}/return/{bookId}": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Return Book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user returning the book.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the book being returned.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "books": [
+                    "",
+                    ""
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
